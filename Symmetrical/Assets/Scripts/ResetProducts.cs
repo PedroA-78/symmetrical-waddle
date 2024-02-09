@@ -47,26 +47,25 @@ public class ResetProducts : MonoBehaviour
             Destroy(product);
         }
 
-        time -= Time.deltaTime;
-        if (time <= 0f) {
-            GameObject shelf = selectShelf();
-            GameObject product;
+        // time -= Time.deltaTime;
+        // if (time <= 0f) {
+        //     GameObject shelf = selectShelf();
+        //     GameObject product;
 
-            if (shelfs.Count <= 0) {
-                Debug.Log("Vazio");
-                init();
-            }
+        //     if (shelfs.Count <= 0) {
+        //         init();
+        //     }
 
-            if (shelf == null) {
-                return;
-            } else {
-                product = selectProduct(shelf);
-            }
+        //     if (shelf == null) {
+        //         return;
+        //     } else {
+        //         product = selectProduct(shelf);
+        //     }
 
-            Destroy(product);
+        //     Destroy(product);
 
-            time = initTime;
-        }
+        //     time = initTime;
+        // }
     }
 
     public GameObject selectProduct(GameObject shelf) {
