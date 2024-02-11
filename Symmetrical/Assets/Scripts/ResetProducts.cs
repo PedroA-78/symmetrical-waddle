@@ -10,6 +10,7 @@ public class ResetProducts : MonoBehaviour
     private float initTime;
     private int index;
     List<GameObject> shelfs = new List<GameObject>();
+    List<string> products = new List<string>();
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,13 @@ public class ResetProducts : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) {
-            if (shelfs.Count <= 1) {
-                Debug.Log("Vazio");
-                init();
-            } else {
-                Debug.Log("Cheio");
-            }
+            shelf();
+            // if (shelfs.Count <= 1) {
+            //     Debug.Log("Vazio");
+            //     init();
+            // } else {
+            //     Debug.Log("Cheio");
+            // }
         }
 
         if (Input.GetKeyDown(KeyCode.Q)) {
@@ -44,6 +46,7 @@ public class ResetProducts : MonoBehaviour
                 product = selectProduct(shelf);
             }
 
+            products.Add(product.name);
             Destroy(product);
         }
 
@@ -135,6 +138,14 @@ public class ResetProducts : MonoBehaviour
             }
                 shelfs.Add(gondola.transform.GetChild(i + 1).transform.gameObject);
                 coordX = 1f;
+        }
+    }
+
+    public void shelf() {
+        foreach (var shelf in shelfs) {
+            for (int i = 0; i < 10; i++) {
+                Debug.Log(shelf.name + ", " + shelf.transform.GetChild(i).name);
+            }
         }
     }
 }
